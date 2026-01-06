@@ -3,14 +3,14 @@ import Layout from './components/Layout';
 import Hero from './components/Hero';
 import Work from './components/Work';
 import Play from './components/Play';
-
-
+import CVSection from './components/CVSection';
 
 function App() {
     return (
         <Layout>
             <Hero />
             <Work />
+            <CVSection />
             <Play />
             <div id="contact" className="container" style={{
                 padding: '80px 20px',
