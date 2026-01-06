@@ -6,10 +6,6 @@ const ProjectCard = ({ project }) => {
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
-    // Only enable scroll-based highlighting on devices without hover (e.g. Mobile/Tablet)
-    const isTouchDevice = window.matchMedia('(hover: none)').matches;
-    if (!isTouchDevice) return;
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsActive(entry.isIntersecting);
