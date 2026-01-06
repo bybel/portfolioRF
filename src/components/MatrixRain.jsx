@@ -65,11 +65,12 @@ const MatrixRain = () => {
                 // Mouse reveal logic
                 const isMobile = width < 768;
                 const dist = Math.hypot(x - mouse.x, y - mouse.y);
-                const maxDist = isMobile ? Math.max(width, height) * 2 : 500; // Reveal radius: Infinite (full screen) on mobile, 500px on desktop
+                const maxDist = 500; // Desktop reveal radius
 
-                // Only draw if within radius
-                if (dist < maxDist) {
-                    const opacity = Math.pow(1 - (dist / maxDist), 3); // Cubic falloff for smoother edge
+                // Draw if mobile (always) or within desktop mouse radius
+                if (isMobile || dist < maxDist) {
+                    // Calculate opacity: Full on mobile, distance-based on desktop
+                    const opacity = isMobile ? 0.3 : Math.pow(1 - (dist / maxDist), 3);
 
                     // Color logic: Bright green at center, darker at edges
                     if (Math.random() > 0.95) {
