@@ -1,37 +1,64 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Github, ExternalLink, Code } from 'lucide-react';
 
 const ProjectCard = ({ project }) => {
-    return (
-        <div className="project-card animate-slide-up">
-            <div className="card-header">
-                <div className="folder-icon">
-                    <Code size={20} />
-                </div>
-                <div className="links">
-                    {project.github && (
-                        <a href={project.github} target="_blank" rel="noopener noreferrer" className="icon-link">
-                            <Github size={20} />
-                        </a>
-                    )}
-                    {project.demo && (
-                        <a href={project.demo} target="_blank" rel="noopener noreferrer" className="icon-link">
-                            <ExternalLink size={20} />
-                        </a>
-                    )}
-                </div>
-            </div>
+  const cardRef = useRef(null);
+  const [isActive, setIsActive] = useState(false);
 
-            <h3 className="project-title">{project.title}</h3>
-            <p className="project-desc">{project.description}</p>
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsActive(entry.isIntersecting);
+      },
+      {
+        root: null,
+        rootMargin: '-45% 0px -45% 0px', // Active only when in the absolute center (10% slice)
+        threshold: 0
+      }
+    );
 
-            <div className="tech-stack">
-                {project.tech.map((tech, index) => (
-                    <span key={index} className="tech-badge">{tech}</span>
-                ))}
-            </div>
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
 
-            <style>{`
+    return () => {
+      if (cardRef.current) observer.unobserve(cardRef.current);
+    };
+  }, []);
+
+  return (
+    <div
+      ref={cardRef}
+      className={`project-card animate-slide-up ${isActive ? 'active' : ''}`}
+    >
+      <div className="card-header">
+        <div className="folder-icon">
+          <Code size={20} />
+        </div>
+        <div className="links">
+          {project.github && (
+            <a href={project.github} target="_blank" rel="noopener noreferrer" className="icon-link">
+              <Github size={20} />
+            </a>
+          )}
+          {project.demo && (
+            <a href={project.demo} target="_blank" rel="noopener noreferrer" className="icon-link">
+              <ExternalLink size={20} />
+            </a>
+          )}
+        </div>
+      </div>
+
+      <h3 className="project-title">{project.title}</h3>
+      <p className="project-desc">{project.description}</p>
+
+      <div className="tech-stack">
+        {project.tech.map((tech, index) => (
+          <span key={index} className="tech-badge">{tech}</span>
+        ))}
+      </div>
+
+      <style>{`
         .project-card {
           background: var(--bg-card);
           padding: 24px;
@@ -42,7 +69,17 @@ const ProjectCard = ({ project }) => {
           overflow: hidden;
         }
 
-        .project-card:hover {
+        /* Desktop Hover - Only on devices with actual hover capability */
+        @media (hover: hover) {
+          .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--text-accent);
+            box-shadow: 0 10px 30px -10px rgba(0, 255, 65, 0.2);
+          }
+        }
+
+        /* Active State - Driven by IntersectionObserver (Mobile Scroll) */
+        .project-card.active {
           transform: translateY(-5px);
           border-color: var(--text-accent);
           box-shadow: 0 10px 30px -10px rgba(0, 255, 65, 0.2);
@@ -100,8 +137,8 @@ const ProjectCard = ({ project }) => {
           border-radius: 4px;
         }
       `}</style>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default ProjectCard;

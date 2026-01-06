@@ -292,6 +292,13 @@ const Hero = () => {
             justify-content: flex-start;
             padding-top: 20vh;
           }
+          /* Move logos to top-right on mobile to avoid bottom clutter */
+          .logo-group {
+            top: 20px !important;
+            bottom: auto !important;
+            right: 20px !important;
+            padding-top: 0 !important;
+          }
         }
       `}</style>
     </section>
