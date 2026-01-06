@@ -82,6 +82,12 @@ const Layout = ({ children }) => {
           gap: 30px;
         }
 
+        @media (max-width: 768px) {
+          .nav-links {
+            display: none;
+          }
+        }
+
         .nav-item {
           font-family: var(--font-mono);
           font-size: 0.9rem;

@@ -63,8 +63,9 @@ const MatrixRain = () => {
                 const y = drops[i] * fontSize;
 
                 // Mouse reveal logic
+                const isMobile = width < 768;
                 const dist = Math.hypot(x - mouse.x, y - mouse.y);
-                const maxDist = 500; // Reveal radius
+                const maxDist = isMobile ? Math.max(width, height) * 2 : 500; // Reveal radius: Infinite (full screen) on mobile, 500px on desktop
 
                 // Only draw if within radius
                 if (dist < maxDist) {

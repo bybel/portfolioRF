@@ -288,6 +288,10 @@ const Hero = () => {
           .terminal-text {
             font-size: 1rem;
           }
+          .hero-section {
+            justify-content: flex-start;
+            padding-top: 20vh;
+          }
         }
       `}</style>
     </section>
