@@ -9,18 +9,12 @@ const CVSection = () => {
             <h2 className="section-title">CURRICULUM VITAE</h2>
 
             <div className="cv-container animate-slide-up">
-                {/* Object Embed for better compatibility */}
-                <object
-                    data={cvUrl}
-                    type="application/pdf"
-                    className="cv-frame"
-                    aria-label="Raphael Fluckiger CV"
-                >
-                    <div className="pdf-fallback">
-                        <p>Your browser does not support embedding PDFs.</p>
-                        <a href={cvUrl} download className="btn btn-primary">Download PDF</a>
-                    </div>
-                </object>
+                {/* Image Embed for max compatibility */}
+                <img
+                    src={`${import.meta.env.BASE_URL}cv.png`}
+                    alt="Raphael Fluckiger CV"
+                    className="cv-image"
+                />
             </div>
 
             <div className="cv-actions">
@@ -58,10 +52,11 @@ const CVSection = () => {
                     filter: invert(1) hue-rotate(180deg); /* Invert colors to make white PDF dark */
                 }
 
-                .cv-frame {
+                .cv-image {
                     width: 100%;
                     height: 100%;
-                    border: none;
+                    object-fit: contain;
+                    display: block;
                 }
                 
                 .pdf-fallback {
