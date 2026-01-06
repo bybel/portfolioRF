@@ -75,6 +75,7 @@ const Hero = () => {
       </div>
 
       <div className="logo-group animate-fade-in">
+        <span className="student-text">Student at</span>
         <img
           src={epflLogo}
           alt="EPFL Logo"
@@ -274,6 +275,14 @@ const Hero = () => {
           50% { transform: translateY(10px); }
         }
 
+        .student-text {
+          font-family: var(--font-mono);
+          color: var(--text-secondary);
+          font-size: 0.8rem;
+          margin-right: 10px;
+          letter-spacing: 1px;
+        }
+
         .logo-group {
           position: absolute;
           bottom: 40px;
@@ -309,6 +318,12 @@ const Hero = () => {
             transform: translateX(-50%);
             width: max-content;
             justify-content: center;
+            align-items: center; /* Center items horizontally in the column */
+          }
+
+          .student-text {
+             margin-right: 0 !important;
+             margin-bottom: 5px;
           }
 
           /* Hide the vertical separator line on mobile */
