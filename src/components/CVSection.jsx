@@ -2,71 +2,28 @@ import React from 'react';
 import cvImage from '../assets/RaphaelFluckigerCV_alt_reduce_img.jpg';
 
 const CVSection = () => {
-    const container = document.querySelector('.cv-container');
-    if (container) {
-        setWidth(container.clientWidth);
-    } else {
-        setWidth(window.innerWidth > 900 ? 900 : window.innerWidth - 40);
-    }
-};
+    /* Path for the PDF download */
+    const cvPdfUrl = `${import.meta.env.BASE_URL}cv.pdf`;
 
-// Initial set
-handleResize();
+    return (
+        <section id="cv" className="cv-section container">
+            <h2 className="section-title">CURRICULUM VITAE</h2>
 
-window.addEventListener('resize', handleResize);
-return () => window.removeEventListener('resize', handleResize);
-    }, []);
-
-const onDocumentLoadSuccess = ({ numPages }) => {
-    setNumPages(numPages);
-};
-
-const cvUrl = `${import.meta.env.BASE_URL}cv.pdf`;
-
-return (
-    <section id="cv" className="cv-section container">
-        <h2 className="section-title">CURRICULUM VITAE</h2>
-
-        <div className="cv-container animate-slide-up">
-            <Document
-                file={cvUrl}
-                onLoadSuccess={onDocumentLoadSuccess}
-                loading={<div className="loading-state">Loading CV...</div>}
-                error={<div className="error-state">Failed to load PDF. Please download below.</div>}
-                className="pdf-document"
-            >
-                {/* Render Page 1 */}
-                <Page
-                    pageNumber={1}
-                    width={width}
-                    className="pdf-page"
-                    renderTextLayer={false}
-                    renderAnnotationLayer={false}
+            <div className="cv-container animate-slide-up">
+                <img
+                    src={cvImage}
+                    alt="Raphael Fluckiger CV"
+                    className="cv-image"
                 />
+            </div>
 
-                {/* Render Page 2 (if it exists) */}
-                {numPages >= 2 && (
-                    <>
-                        <div className="page-separator"></div>
-                        <Page
-                            pageNumber={2}
-                            width={width}
-                            className="pdf-page"
-                            renderTextLayer={false}
-                            renderAnnotationLayer={false}
-                        />
-                    </>
-                )}
-            </Document>
-        </div>
+            <div className="cv-actions">
+                <a href={cvPdfUrl} download="Raphael_Fluckiger_CV.pdf" className="btn btn-primary">
+                    DOWNLOAD PDF
+                </a>
+            </div>
 
-        <div className="cv-actions">
-            <a href={cvUrl} download="Raphael_Fluckiger_CV.pdf" className="btn btn-primary">
-                DOWNLOAD PDF
-            </a>
-        </div>
-
-        <style>{`
+            <style>{`
                 .cv-section {
                     padding: 80px 20px;
                     display: flex;
@@ -86,38 +43,19 @@ return (
                 .cv-container {
                     width: 100%;
                     max-width: 900px;
-                    min-height: 500px;
                     position: relative;
-                    /* Invert filter: Makes white PDF background black, black text white */
+                    /* Invert filter: Makes white background black, black text white */
                     filter: invert(1) hue-rotate(180deg) contrast(0.9);
-                }
-
-                .pdf-document {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 20px;
-                }
-
-                .pdf-page canvas {
+                    border: 1px solid var(--text-accent);
                     border-radius: 8px;
-                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                    display: block !important;
-                    height: auto !important; /* Ensure aspect ratio is maintained */
+                    overflow: hidden;
+                    background: #fff;
                 }
 
-                .page-separator {
+                .cv-image {
                     width: 100%;
-                    height: 2px;
-                    background: #555;
-                    opacity: 0.5;
-                }
-                
-                .loading-state, .error-state {
-                    color: #000;
-                    font-family: var(--font-mono);
-                    text-align: center;
-                    padding: 40px;
+                    height: auto;
+                    display: block;
                 }
 
                 .cv-actions {
@@ -130,8 +68,8 @@ return (
                     }
                 }
             `}</style>
-    </section>
-);
+        </section>
+    );
 };
 
 export default CVSection;
