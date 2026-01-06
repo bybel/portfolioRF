@@ -1,5 +1,6 @@
 import React from 'react';
-import cvImage from '../assets/RaphaelFluckigerCV_alt_reduce_img.jpg';
+import cvPage1 from '../assets/output-1.jpg';
+import cvPage2 from '../assets/output-2.jpg';
 
 const CVSection = () => {
     /* Path for the PDF download */
@@ -11,8 +12,14 @@ const CVSection = () => {
 
             <div className="cv-container animate-slide-up">
                 <img
-                    src={cvImage}
-                    alt="Raphael Fluckiger CV"
+                    src={cvPage1}
+                    alt="Raphael Fluckiger CV Page 1"
+                    className="cv-image"
+                />
+                <div className="cv-separator"></div>
+                <img
+                    src={cvPage2}
+                    alt="Raphael Fluckiger CV Page 2"
                     className="cv-image"
                 />
             </div>
@@ -50,12 +57,20 @@ const CVSection = () => {
                     border-radius: 8px;
                     overflow: hidden;
                     background: #fff;
+                    display: flex;
+                    flex-direction: column;
                 }
 
                 .cv-image {
                     width: 100%;
                     height: auto;
                     display: block;
+                }
+
+                .cv-separator {
+                    height: 4px;
+                    background: #ccc;
+                    width: 100%;
                 }
 
                 .cv-actions {
