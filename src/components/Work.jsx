@@ -3,8 +3,22 @@ import ProjectCard from './ProjectCard';
 
 const projects = [
   {
+    title: "OFDM Ranging Security Analysis",
+    description: "Investigated IEEE 802.11az secure ranging susceptibility to ED/LC attacks. Modeled transmission and attacker strategies to analyze trade-offs between success rate and complexity. This is used to steal cars, but don't worry, I'm not a thief...",
+    tech: ["Python", "MATLAB", "Wireless Security", "Signal Processing"],
+    github: null,
+    demo: null
+  },
+  {
+    title: "LibXML Fuzzing Campaign",
+    description: "Conducted security testing on libXML using LibFuzzer and AFL. Improved code coverage from 8% to 34% and successfully reproduced a CVE.",
+    tech: ["C/C++", "AFL", "LibFuzzer", "Vuln Research"],
+    github: "https://github.com/bybel/libxml2",
+    demo: null
+  },
+  {
     title: "Location Privacy Preserving Service",
-    description: "A Python-based location privacy preserving service that uses differential privacy to protect user location data from fingerprinting. Did you know it is very easy to find one's home and workplace by collecting location data over time?",
+    description: "A Python-based location privacy preserving service that uses differential privacy to protect user location data from fingerprinting. Would you be willing to give your home and work locations for a couple restaurant recommendations?",
     tech: ["Python", "Differential Privacy", "Fingerprinting"],
     github: "https://github.com/Val-de-mar/CS-523-projects/tree/master/secretstroll",
     demo: null
@@ -14,20 +28,6 @@ const projects = [
     description: "Designed a secure voting system for multi-party budget allocation using garbled circuits. Enabled joint computation of voting results without revealing individual contributions. The use case was for the UN but we didn't quite have the right contacts.",
     tech: ["Cryptography", "MPC", "Garbled Circuits", "Python"],
     github: "https://github.com/Val-de-mar/CS-523-projects/tree/master/smcompiler",
-    demo: null
-  },
-  {
-    title: "OFDM Ranging Security Analysis",
-    description: "Investigated IEEE 802.11az secure ranging susceptibility to ED/LC attacks. Modeled transmission and attacker strategies to analyze trade-offs between success rate and complexity. This is used to steal cars, but don't worry, I'm not a thief...",
-    tech: ["Python", "MATLAB", "Wireless Security", "Signal Processing"],
-    github: "#",
-    demo: null
-  },
-  {
-    title: "LibXML Fuzzing Campaign",
-    description: "Conducted security testing on libXML using LibFuzzer and AFL. Improved code coverage from 8% to 34% and successfully reproduced a CVE.",
-    tech: ["C/C++", "AFL", "LibFuzzer", "Vuln Research"],
-    github: "#",
     demo: null
   },
   {
