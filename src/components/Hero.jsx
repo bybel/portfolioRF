@@ -74,16 +74,7 @@ const Hero = () => {
 
       </div>
 
-      <div className="logo-group animate-fade-in" style={{
-        position: 'absolute',
-        bottom: '40px',
-        right: '40px',
-        display: 'flex',
-        gap: '20px',
-        alignItems: 'center',
-        opacity: 0.7,
-        zIndex: 20
-      }}>
+      <div className="logo-group animate-fade-in">
         <img
           src={epflLogo}
           alt="EPFL Logo"
@@ -281,6 +272,17 @@ const Hero = () => {
         @keyframes float {
           0%, 100% { transform: translateY(0); }
           50% { transform: translateY(10px); }
+        }
+
+        .logo-group {
+          position: absolute;
+          bottom: 40px;
+          right: 40px;
+          display: flex;
+          gap: 20px;
+          align-items: center;
+          opacity: 0.7;
+          z-index: 20;
         }
 
         @media (max-width: 768px) {
