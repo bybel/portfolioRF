@@ -12,7 +12,7 @@ const Layout = ({ children }) => {
           </div>
           <nav className="nav-links">
             <a href="#work" className="nav-item">WORK</a>
-            <a href="#play" className="nav-item">PLAY</a>
+            <a href="#play" className="nav-item">AUDIO</a>
             <a href="#contact" className="nav-item">CONTACT</a>
           </nav>
         </div>
