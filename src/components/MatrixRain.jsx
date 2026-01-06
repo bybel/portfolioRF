@@ -93,13 +93,21 @@ const MatrixRain = () => {
         const interval = setInterval(draw, 42);
 
         const handleResize = () => {
-            width = window.innerWidth;
-            height = window.innerHeight;
-            canvas.width = width;
-            canvas.height = height;
-            // Recalculate columns on resize
-            // Note: drops array size won't match anymore, but JS arrays are resilient.
-            // Better to re-init drops or just let it be.
+            // Only resize if width changes (prevents mobile scroll reset)
+            if (window.innerWidth !== width) {
+                width = window.innerWidth;
+                height = window.innerHeight;
+                canvas.width = width;
+                canvas.height = height;
+                // Note: drops array size won't match columns if width changed
+                // so we might want to re-init drops or slice/expand them.
+                // For simplicity, we just let the dots fall where they may or re-init if needed.
+                // Re-calculating columns:
+                /* 
+                   const newColumns = width / fontSize;
+                   // ... logic to resize drops array would go here if strictness needed
+                */
+            }
         };
         window.addEventListener('resize', handleResize);
 
