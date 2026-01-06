@@ -32,7 +32,7 @@ const projects = [
   },
   {
     title: "Quadcopter Flight Controller Design and Implementation",
-    description: "Implemented the flight controller's stabilization logic using PID control. The electronics were also designed in-house. \n:)) ",
+    description: "Implemented the flight controller's stabilization logic using PID control. The electronics were also designed in-house. BZZZZZ :)) ",
     tech: ["C/C++", "Arduino", "PID Control", "Tx/Rx"],
     github: "https://github.com/bybel/R2-Quadcopter",
     demo: null
