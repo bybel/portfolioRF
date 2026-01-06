@@ -12,9 +12,14 @@ const MatrixRain = () => {
         canvas.height = height;
 
         const katakana = 'アカタハヤラガダパィシニミヰジビウクツフユルズヅエケテヘレゲデペォソノモョヲゾボヴン';
-        const latin = 'RAPHONICS';
+        const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         const nums = '0123456789';
-        const letters = katakana + latin + nums;
+        const greek = 'ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ';
+        const cyrillic = 'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ';
+        const runes = 'ᚠᚢᚦᚨᚱᚲᚷᚹᚺᚾᛁჂᛇᛈᛉᛊᛏᛒᛖᛗᛚᛜᛞᛟ';
+        const cyber = '∀∃∅∈∉∋∏∑√∝∞∠∫≈≠≡≤≥⊂⊃⊆⊇⊕⊗';
+
+        const letters = katakana + latin + nums + greek + cyrillic + runes + cyber;
         const fontSize = 14;
         const columns = width / fontSize;
         const drops = [];
