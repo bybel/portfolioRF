@@ -69,28 +69,7 @@ const Hero = () => {
           </a>
         </div>
 
-        {/* Mobile-only Logo Group (Flows naturally after buttons) */}
-        <div className="mobile-logo-group animate-slide-up">
-          <img
-            src={epflLogo}
-            alt="EPFL Logo"
-            style={{
-              height: '25px',
-              width: 'auto',
-              filter: 'grayscale(100%) sepia(1) saturate(5) hue-rotate(80deg) brightness(1.2) drop-shadow(0 0 2px rgba(0, 255, 65, 0.5))',
-            }}
-          />
-          <div style={{ width: '1px', height: '20px', background: 'var(--text-accent)', opacity: 0.3 }}></div>
-          <img
-            src={ethLogo}
-            alt="ETH Logo"
-            style={{
-              height: '24px',
-              width: 'auto',
-              filter: 'invert(1) sepia(1) saturate(5) hue-rotate(80deg) brightness(1.2) drop-shadow(0 0 2px rgba(0, 255, 65, 0.5))',
-            }}
-          />
-        </div>
+
 
 
       </div>
@@ -304,14 +283,6 @@ const Hero = () => {
           50% { transform: translateY(10px); }
         }
 
-        .mobile-logo-group {
-          display: none; /* Hidden by default (Desktop) */
-          gap: 20px;
-          align-items: center;
-          margin-top: 40px;
-          opacity: 0.7;
-        }
-
         @media (max-width: 768px) {
           .glitch-title {
             font-size: 2rem;
@@ -321,17 +292,24 @@ const Hero = () => {
           }
           .hero-section {
             justify-content: flex-start;
-            padding-top: 20vh;
+            padding-top: 15vh;
           }
           
-          /* Hide the absolute desktop logos */
+          /* Position logos at bottom center on mobile */
           .logo-group {
-            display: none !important;
+            display: flex !important;
+            position: absolute !important;
+            bottom: 90px !important;
+            left: 50% !important;
+            right: auto !important;
+            transform: translateX(-50%);
+            width: max-content;
+            justify-content: center;
           }
 
-          /* Show the relative mobile logos */
+          /* Hide the duplicate mobile group if it exists (cleanup) */
           .mobile-logo-group {
-            display: flex;
+            display: none !important;
           }
         }
       `}</style>
