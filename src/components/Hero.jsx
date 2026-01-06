@@ -69,6 +69,29 @@ const Hero = () => {
           </a>
         </div>
 
+        {/* Mobile-only Logo Group (Flows naturally after buttons) */}
+        <div className="mobile-logo-group animate-slide-up">
+          <img
+            src={epflLogo}
+            alt="EPFL Logo"
+            style={{
+              height: '25px',
+              width: 'auto',
+              filter: 'grayscale(100%) sepia(1) saturate(5) hue-rotate(80deg) brightness(1.2) drop-shadow(0 0 2px rgba(0, 255, 65, 0.5))',
+            }}
+          />
+          <div style={{ width: '1px', height: '20px', background: 'var(--text-accent)', opacity: 0.3 }}></div>
+          <img
+            src={ethLogo}
+            alt="ETH Logo"
+            style={{
+              height: '24px',
+              width: 'auto',
+              filter: 'invert(1) sepia(1) saturate(5) hue-rotate(80deg) brightness(1.2) drop-shadow(0 0 2px rgba(0, 255, 65, 0.5))',
+            }}
+          />
+        </div>
+
 
       </div>
 
@@ -281,6 +304,14 @@ const Hero = () => {
           50% { transform: translateY(10px); }
         }
 
+        .mobile-logo-group {
+          display: none; /* Hidden by default (Desktop) */
+          gap: 20px;
+          align-items: center;
+          margin-top: 40px;
+          opacity: 0.7;
+        }
+
         @media (max-width: 768px) {
           .glitch-title {
             font-size: 2rem;
@@ -292,12 +323,15 @@ const Hero = () => {
             justify-content: flex-start;
             padding-top: 20vh;
           }
-          /* Move logos to top-right on mobile to avoid bottom clutter */
+          
+          /* Hide the absolute desktop logos */
           .logo-group {
-            top: 20px !important;
-            bottom: auto !important;
-            right: 20px !important;
-            padding-top: 0 !important;
+            display: none !important;
+          }
+
+          /* Show the relative mobile logos */
+          .mobile-logo-group {
+            display: flex;
           }
         }
       `}</style>

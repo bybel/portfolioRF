@@ -12,7 +12,7 @@ function App() {
             <Hero />
             <Work />
             <Play />
-            <div id="about" className="container" style={{
+            <div id="contact" className="container" style={{
                 padding: '80px 20px',
                 borderTop: '1px solid var(--border-color)',
                 textAlign: 'center'

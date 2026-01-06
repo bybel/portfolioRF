@@ -77,7 +77,7 @@ Error generating stack: `+o.message+`
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const Vd=an("Terminal",[["polyline",{points:"4 17 10 11 4 5",key:"akl6gq"}],["line",{x1:"12",x2:"20",y1:"19",y2:"19",key:"q2wloq"}]]),Hd=({children:e})=>y.jsxs("div",{className:"layout",children:[y.jsx("header",{className:"navbar",children:y.jsxs("div",{className:"container navbar-content",children:[y.jsxs("div",{className:"logo",children:[y.jsx(Vd,{size:24,className:"logo-icon"}),y.jsxs("span",{className:"logo-text",children:["RAPHAEL_FLUCKIGER",y.jsx("span",{className:"cursor",children:"_"})]})]}),y.jsxs("nav",{className:"nav-links",children:[y.jsx("a",{href:"#work",className:"nav-item",children:"WORK"}),y.jsx("a",{href:"#play",className:"nav-item",children:"PLAY"}),y.jsx("a",{href:"#about",className:"nav-item",children:"CONTACT"})]})]})}),y.jsx("main",{className:"main-content",children:e}),y.jsx("footer",{className:"footer",children:y.jsx("div",{className:"container",children:y.jsxs("p",{children:["© ",new Date().getFullYear()," Raphonics. built_secure."]})})}),y.jsx("style",{children:`
+ */const Vd=an("Terminal",[["polyline",{points:"4 17 10 11 4 5",key:"akl6gq"}],["line",{x1:"12",x2:"20",y1:"19",y2:"19",key:"q2wloq"}]]),Hd=({children:e})=>y.jsxs("div",{className:"layout",children:[y.jsx("header",{className:"navbar",children:y.jsxs("div",{className:"container navbar-content",children:[y.jsxs("div",{className:"logo",children:[y.jsx(Vd,{size:24,className:"logo-icon"}),y.jsxs("span",{className:"logo-text",children:["RAPHAEL_FLUCKIGER",y.jsx("span",{className:"cursor",children:"_"})]})]}),y.jsxs("nav",{className:"nav-links",children:[y.jsx("a",{href:"#work",className:"nav-item",children:"WORK"}),y.jsx("a",{href:"#play",className:"nav-item",children:"PLAY"}),y.jsx("a",{href:"#contact",className:"nav-item",children:"CONTACT"})]})]})}),y.jsx("main",{className:"main-content",children:e}),y.jsx("footer",{className:"footer",children:y.jsx("div",{className:"container",children:y.jsxs("p",{children:["© ",new Date().getFullYear()," Raphonics. built_secure."]})})}),y.jsx("style",{children:`
         .layout {
           min-height: 100vh;
           display: flex;
@@ -361,12 +361,15 @@ Error generating stack: `+o.message+`
             justify-content: flex-start;
             padding-top: 20vh;
           }
-          /* Move logos to top-right on mobile to avoid bottom clutter */
+          /* Move logos beneath buttons on mobile */
           .logo-group {
-            top: 20px !important;
+            position: relative !important;
             bottom: auto !important;
-            right: 20px !important;
-            padding-top: 0 !important;
+            right: auto !important;
+            top: auto !important;
+            margin-top: 40px;
+            justify-content: center;
+            width: 100%;
           }
         }
       `})]})},Kd=({project:e})=>{const t=de.useRef(null),[n,r]=de.useState(!1);return de.useEffect(()=>{const l=new IntersectionObserver(([o])=>{r(o.isIntersecting)},{root:null,rootMargin:"-45% 0px -45% 0px",threshold:0});return t.current&&l.observe(t.current),()=>{t.current&&l.unobserve(t.current)}},[]),y.jsxs("div",{ref:t,className:`project-card animate-slide-up ${n?"active":""}`,children:[y.jsxs("div",{className:"card-header",children:[y.jsx("div",{className:"folder-icon",children:y.jsx(Dd,{size:20})}),y.jsxs("div",{className:"links",children:[e.github&&y.jsx("a",{href:e.github,target:"_blank",rel:"noopener noreferrer",className:"icon-link",children:y.jsx(Ad,{size:20})}),e.demo&&y.jsx("a",{href:e.demo,target:"_blank",rel:"noopener noreferrer",className:"icon-link",children:y.jsx(Fd,{size:20})})]})]}),y.jsx("h3",{className:"project-title",children:e.title}),y.jsx("p",{className:"project-desc",children:e.description}),y.jsx("div",{className:"tech-stack",children:e.tech.map((l,o)=>y.jsx("span",{className:"tech-badge",children:l},o))}),y.jsx("style",{children:`
@@ -558,4 +561,4 @@ Error generating stack: `+o.message+`
             grid-template-columns: 1fr;
           }
         }
-      `})]});function Zd(){return y.jsxs(Hd,{children:[y.jsx(Qd,{}),y.jsx(Gd,{}),y.jsx(Xd,{}),y.jsxs("div",{id:"about",className:"container",style:{padding:"80px 20px",borderTop:"1px solid var(--border-color)",textAlign:"center"},children:[y.jsx("h2",{style:{fontSize:"2rem",marginBottom:"20px"},children:"READY TO COLLABORATE?"}),y.jsx("a",{href:"mailto:rfluecki@proton.me",style:{fontSize:"1.5rem",fontFamily:"var(--font-mono)",textDecoration:"underline"},children:"rfluecki@proton.me"})]})]})}Yl.createRoot(document.getElementById("root")).render(y.jsx(xc.StrictMode,{children:y.jsx(Zd,{})}));
+      `})]});function Zd(){return y.jsxs(Hd,{children:[y.jsx(Qd,{}),y.jsx(Gd,{}),y.jsx(Xd,{}),y.jsxs("div",{id:"contact",className:"container",style:{padding:"80px 20px",borderTop:"1px solid var(--border-color)",textAlign:"center"},children:[y.jsx("h2",{style:{fontSize:"2rem",marginBottom:"20px"},children:"READY TO COLLABORATE?"}),y.jsx("a",{href:"mailto:rfluecki@proton.me",style:{fontSize:"1.5rem",fontFamily:"var(--font-mono)",textDecoration:"underline"},children:"rfluecki@proton.me"})]})]})}Yl.createRoot(document.getElementById("root")).render(y.jsx(xc.StrictMode,{children:y.jsx(Zd,{})}));
