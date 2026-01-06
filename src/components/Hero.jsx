@@ -295,16 +295,23 @@ const Hero = () => {
             padding-top: 15vh;
           }
           
-          /* Position logos at bottom center on mobile */
+          /* Position logos at bottom center on mobile, stacked */
           .logo-group {
             display: flex !important;
+            flex-direction: column !important;
+            gap: 15px !important;
             position: absolute !important;
-            bottom: 90px !important;
+            bottom: 100px !important; /* Raised slightly for vertical stack */
             left: 50% !important;
             right: auto !important;
             transform: translateX(-50%);
             width: max-content;
             justify-content: center;
+          }
+
+          /* Hide the vertical separator line on mobile */
+          .logo-group > div {
+            display: none !important;
           }
 
           /* Hide the duplicate mobile group if it exists (cleanup) */
