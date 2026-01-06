@@ -1,22 +1,30 @@
 import React from 'react';
-import cvPdf from '../assets/RaphaelFluckigerCV_alt_reduce.pdf';
 
 const CVSection = () => {
+    // Construct path ensuring correct base for GitHub Pages
+    const cvUrl = `${import.meta.env.BASE_URL}cv.pdf`;
+
     return (
         <section id="cv" className="cv-section container">
             <h2 className="section-title">CURRICULUM VITAE</h2>
 
             <div className="cv-container animate-slide-up">
-                {/* PDF Embed */}
-                <iframe
-                    src={cvPdf}
+                {/* Object Embed for better compatibility */}
+                <object
+                    data={cvUrl}
+                    type="application/pdf"
                     className="cv-frame"
-                    title="Raphael Fluckiger CV"
-                />
+                    aria-label="Raphael Fluckiger CV"
+                >
+                    <div className="pdf-fallback">
+                        <p>Your browser does not support embedding PDFs.</p>
+                        <a href={cvUrl} download className="btn btn-primary">Download PDF</a>
+                    </div>
+                </object>
             </div>
 
             <div className="cv-actions">
-                <a href={cvPdf} download="Raphael_Fluckiger_CV.pdf" className="btn btn-primary">
+                <a href={cvUrl} download="Raphael_Fluckiger_CV.pdf" className="btn btn-primary">
                     DOWNLOAD PDF
                 </a>
             </div>
@@ -54,6 +62,16 @@ const CVSection = () => {
                     width: 100%;
                     height: 100%;
                     border: none;
+                }
+                
+                .pdf-fallback {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100%;
+                    color: #000;
+                    gap: 20px;
                 }
 
                 .cv-actions {
