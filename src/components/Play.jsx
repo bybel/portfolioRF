@@ -28,10 +28,7 @@ const Play = () => {
           <div className="music-column">
             <h3 className="column-title">TRANSMISSIONS</h3>
             <div className="track-list">
-              <SoundCloudEmbed
-                title="slipp'n"
-                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1146669835&color=%235c547c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
-              />
+
               <SoundCloudEmbed
                 title="Monique"
                 src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A804452293&color=%235f682e&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
@@ -43,6 +40,10 @@ const Play = () => {
               <SoundCloudEmbed
                 title="Dududum"
                 src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A1591722295&color=%23347447&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+              />
+              <SoundCloudEmbed
+                title="slipp'n"
+                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1146669835&color=%235c547c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
               />
             </div>
           </div>
