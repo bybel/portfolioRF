@@ -20,14 +20,14 @@ const projects = [
     title: "Location Privacy Preserving Service",
     description: "A Python-based location privacy preserving service that uses differential privacy to protect user location data from fingerprinting. Would you be willing to give your home and work locations for a couple restaurant recommendations?",
     tech: ["Python", "Differential Privacy", "Fingerprinting"],
-    github: null,
+    github: "https://github.com/bybel/CS-523-projects/tree/master/secretstroll",
     demo: null
   },
   {
     title: "Secure MPC Voting System",
     description: "Designed a secure voting system for multi-party budget allocation using garbled circuits. Enabled joint computation of voting results without revealing individual contributions. The use case was for the UN but we didn't quite have the right contacts.",
     tech: ["Cryptography", "MPC", "Garbled Circuits", "Python"],
-    github: null,
+    github: "https://github.com/bybel/CS-523-projects/tree/master/smcompiler",
     demo: null
   },
   {
